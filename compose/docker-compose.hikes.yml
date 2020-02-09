@@ -1,0 +1,25 @@
+version: '3'
+services:
+  hikes:
+    build:
+      context: .
+      dockerfile: ./hikes/DOCKERFILE
+    depends_on:
+      - mongo-hikes
+    volumes:
+      - vol-keys:/usr/src/app/keys
+    networks:
+      - tb_net
+      - tb_hikes_net
+  mongo-hikes:
+    image: mongo:4.0
+    volumes:
+      - db-hikes:/data/db
+    ports:
+      - 127.0.0.1:27002:27017
+    networks:
+      - tb_hikes_net
+
+networks:
+  tb_hikes_net:
+      

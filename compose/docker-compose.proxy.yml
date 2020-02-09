@@ -1,0 +1,41 @@
+version: '3'
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: ./proxy/DOCKERFILE
+    ports:
+      - 127.0.0.1:80:80
+      - 443:443
+    expose:
+      - 80
+    depends_on:
+      - frontend
+      - auth
+      - hikes
+      - user
+      - weather
+      - map
+    networks:
+      - tb_net
+  proxy-debug:
+    build:
+      context: .
+      dockerfile: ./proxy/DOCKERFILE
+      args:
+        - DEBUG=true
+    ports:
+      - 127.0.0.1:80:80
+      - 443:443
+    expose:
+      - 80
+    depends_on:
+      - frontend
+      - auth
+      - hikes
+      - user
+      - weather
+      - map
+      - service-utils
+    networks:
+      - tb_net

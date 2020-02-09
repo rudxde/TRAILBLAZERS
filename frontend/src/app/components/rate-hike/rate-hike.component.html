@@ -1,0 +1,28 @@
+<h1>Wanderungs-Übersicht</h1>
+
+<div class="report-line pause">
+    Pausen: {{(pauseTimeSpan$ | async) | timespan}}
+</div>
+
+<div class="report-line speed">
+    Durchschnittsgeschwindigkeit: {{(averageSpeed$ | async)}} km/h
+</div>
+
+<div class="report-line speed-ratings">
+    <span class="speed-rating" *ngFor="let rating of (ratingParts$ | async)">
+        <span class="name">{{rating.name}}</span>
+        <span class="diagram">
+            <span class="bar" [style.width]="rating.value + '%'"></span>
+        </span>
+    </span>
+</div>
+
+
+<div class="report-line rate">
+    <h3>Wie hat ihnen diese Wanderung gefallen?</h3>
+    <div class="stars">
+        <span *ngFor="let rating of ratings">
+            <mat-icon class="rate-star" (click)="rate(rating)">star_border</mat-icon>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<mat-progress-bar *ngIf="(loading$ | async) !== 'loaded'" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="(loading$ | async) === 'loaded'">
+    <div class="no-results" *ngIf="(results$|async).length === 0">
+        Keine Wanderungen gefunden!<br>
+        Versuchen Sie den Suchradius zu vergrößern.
+    </div>
+    <mat-card *ngFor="let hike of (results$|async) as hike" (click)="openRoute(hike)" class="hike-result">
+        <span class="hike-preview" [style.backgroundImage]="'url(' + hike.constructedImgUrl + ')'"></span>
+        <span class="hike-name">
+            {{hike.title}}
+        </span>
+        <span class="hike-metha">
+            {{hike.time | timespan}} - {{hike.length | distanceKm: 'km' }}
+        </span>
+    </mat-card>
+</div>

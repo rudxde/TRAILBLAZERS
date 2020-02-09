@@ -1,0 +1,7 @@
+FROM tb_interfaces
+
+WORKDIR /usr/src/environment
+COPY ./environment/package.json ./
+RUN npm install
+COPY ./environment/ .
+RUN npm run build

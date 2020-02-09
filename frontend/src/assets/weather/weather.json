@@ -1,0 +1,7 @@
+{
+    "cityName": "München",
+    "currentTemp": 20,
+    "clouds": "Cloudy",
+    "wind": 15,
+    "weatherIconURL": "http://openweathermap.org/img/wn/01d@2x.png"
+}

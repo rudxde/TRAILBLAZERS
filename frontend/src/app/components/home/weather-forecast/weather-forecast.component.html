@@ -1,0 +1,17 @@
+<mat-progress-bar *ngIf="(loading$ | async) !== 'loaded'" mode="indeterminate"></mat-progress-bar>
+<div class="weather" *ngIf="(loading$ | async) === 'loaded'">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="weather-icon"
+                [style.background-image]="'url(' + (weatherData$ | async).weatherIconURL + ')'"> </div>
+            <mat-card-title> Wetter </mat-card-title>
+            <mat-card-subtitle>{{(weatherData$ | async).cityName}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <span class="header"> Temperatur:</span>
+            <span class="data"> {{(weatherData$ | async).currentTemp}} °</span> <br>
+            <span class="header">Wind:</span>
+            <span class="data"> {{(weatherData$ | async).wind}} m/s</span>
+        </mat-card-content>
+    </mat-card>
+</div>

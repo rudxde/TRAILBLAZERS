@@ -1,0 +1,14 @@
+<mat-progress-bar *ngIf="(loading$ | async) === 'loading'" mode="indeterminate"></mat-progress-bar>
+
+<div class="profile" *ngIf="(loading$ | async) === 'loaded'">
+    <span class="profile-pic" *ngIf="!!(profile$ | async).picturePath" [style.backgroundImage]="'url(' + (profile$ | async).picturePath + ')'"></span>
+    <mat-icon class="profile-pic" *ngIf="!(profile$ | async).picturePath">
+        perm_identity
+    </mat-icon>
+    <span class="nick-name">
+        {{(profile$ | async).nickName}}
+    </span>
+    <span class="rank">
+        <mat-icon *ngFor="let icon of rank">{{icon}}</mat-icon>
+    </span>
+</div>

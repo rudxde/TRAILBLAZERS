@@ -1,0 +1,40 @@
+<div *ngIf="(loading$ | async) === 'loaded'">
+    <div *ngIf="hikingRoute$|async as hike">
+        <mat-card class="dontForget">
+            <mat-card-header>
+                <mat-icon mat-card-avatar>report</mat-icon>
+                <mat-card-title>
+                    Nicht vergessen: <mat-icon></mat-icon>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-selection-list *ngFor="let dontForgetItem of dontForget" color="primary" role="listbox">
+                    <mat-list-option>- {{dontForgetItem}}</mat-list-option>
+                </mat-selection-list>
+                <span class="add-items-container">
+                    <mat-form-field class="addItems">
+                        <input matInput placeholder="Füge eigene Einträge hinzu" [(ngModel)]="dontForgetItem">
+                    </mat-form-field>
+                    <button class="addButton" mat-raised-button color="primary" (click)="addItem()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </span>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="startingPoint">
+            <mat-card-header>
+                <mat-icon mat-card-avatar>commute</mat-icon>
+                <mat-card-title> Startpunkt: </mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <a class="gmapsButton" mat-raised-button [href]="openMapsURL$ | async" target="_blank"
+                    color="primary">Google Maps
+                    Navigation starten</a>
+            </mat-card-actions>
+        </mat-card>
+        <button class="startHikeButton centeredSubmitButton" mat-raised-button color="primary"
+            (click)="startHike()">Beginne
+            Wanderung</button>
+    </div>
+</div>

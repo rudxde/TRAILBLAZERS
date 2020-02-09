@@ -1,0 +1,11 @@
+{
+    "id": "2",
+    "isMe": false,
+    "isMyFriend": true,
+    "firstName": "Lois",
+    "lastName": "Griffin",
+    "nickName": "Lois",
+    "personalScores": {},
+    "picturePath": "http://www.coverwhiz.com/content/Family-Guy-Season-15.jpg",
+    "rank": 3
+}

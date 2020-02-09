@@ -1,0 +1,25 @@
+version: '3'
+services:
+  map:
+    build:
+      context: .
+      dockerfile: ./map/DOCKERFILE
+    depends_on:
+      - mongo-map
+    volumes:
+      - vol-keys:/usr/src/app/keys
+    networks:
+      - tb_net
+      - tb_map_net
+  mongo-map:
+    image: mongo:4.0
+    volumes:
+      - db-map:/data/db
+    ports:
+      - 127.0.0.1:27005:27017
+    networks:
+      - tb_map_net
+
+
+networks:
+  tb_map_net:

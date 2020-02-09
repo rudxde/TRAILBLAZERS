@@ -1,0 +1,29 @@
+{
+  "name": "@tb/user",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index",
+  "types": "dist/index",
+  "author": "",
+  "scripts": {
+    "start": "node dist/index.js",
+    "start-ts": "node src/index.ts",
+    "build": "tsc -p .",
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "typedoc": "node node_modules/typedoc/bin/typedoc --out ../docs/api/utils --module commonjs --mode file --target es6 --readme none --name \"hvstr-utils API Documentation\" --tsconfig ./tsconfig.json --ignoreCompilerErrors ./src/"
+  },
+  "dependencies": {
+    "@tb/environment": "file:../environment",
+    "@tb/interfaces": "file:../interfaces",
+    "@tb/service-utils": "file:../service-utils",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/mongodb": "^3.3.15",
+    "@types/node": "^12.12.26",
+    "tslint": "~5.9.1",
+    "typescript": "^3.7.5"
+  }
+}

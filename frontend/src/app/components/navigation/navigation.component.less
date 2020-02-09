@@ -1,0 +1,38 @@
+.start-track-button {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.map {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+}
+
+.layer1 {
+    position: absolute;
+    top: -200;
+    left: -200;
+    z-index: -1;
+}
+
+.layer2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.debugData {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-anchor: right;
+    z-index: 10;
+}

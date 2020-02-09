@@ -1,0 +1,91 @@
+{
+  "rules": {
+    "array-type": false,
+    "deprecation": {
+      "severity": "warning"
+    },
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "interface-name": true,
+    "max-classes-per-file": true,
+    "indent": [
+      true,
+      "spaces",
+      4
+    ],
+    "eofline": true,
+    "linebreak-style": [
+      true,
+      "LF"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "max-line-length": [
+      true,
+      160
+    ],
+    "member-access": true,
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "protected-static-field",
+          "private-static-field",
+          "public-instance-field",
+          "protected-instance-field",
+          "private-instance-field",
+          "public-constructor",
+          "protected-constructor",
+          "private-constructor",
+          "public-static-method",
+          "protected-static-method",
+          "private-static-method",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ],
+    "no-consecutive-blank-lines": true,
+    "no-console": [
+      true,
+      "debug",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-empty": true,
+    "no-inferrable-types": false,
+    "no-non-null-assertion": false,
+    "no-redundant-jsdoc": false,
+    "no-switch-case-fall-through": true,
+    "no-unused-variable": [
+      true,
+      {
+        "ignore-pattern": "^_"
+      }
+    ],
+    "no-var-requires": true,
+    "trailing-comma": true,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ]
+  }
+}

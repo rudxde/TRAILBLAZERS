@@ -1,0 +1,18 @@
+{
+  "name": "@tb/interfaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index",
+  "types": "dist/index",
+  "author": "",
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "typedoc": "node node_modules/typedoc/bin/typedoc --out ../docs/api/utils --module commonjs --mode file --target es6 --readme none --name \"hvstr-utils API Documentation\" --tsconfig ./tsconfig.json --ignoreCompilerErrors ./src/"
+  },
+  "devDependencies": {
+    "tslint": "~5.9.1",
+    "typedoc": "^0.15.8",
+    "typescript": "^3.7.5"
+  }
+}

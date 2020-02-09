@@ -1,0 +1,49 @@
+<div class="filter-name">{{filter.name}}</div>
+
+<div *ngIf="filter.type === 'duration'">
+    <app-duration-picker label="Von:" (value)="setDurationMin($event)"></app-duration-picker>
+    <app-duration-picker label="Bis:" (value)="setDurationMax($event)"></app-duration-picker>
+</div>
+
+<div *ngIf="filter.type === 'difficulty'">
+    <form [formGroup]="durationForm" class="difficultyForm">
+        <mat-form-field>
+            <mat-label>von</mat-label>
+            <mat-select formControlName="dificultyFromSelect">
+                <mat-option *ngFor="let difficulty of allDifficulties" [value]="difficulty.value">
+                    {{difficulty.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>bis</mat-label>
+            <mat-select formControlName="dificultyToSelect">
+                <mat-option *ngFor="let difficulty of allDifficulties" [value]="difficulty.value">
+                    {{difficulty.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+
+<div *ngIf="filter.type === 'location'">
+    <form [formGroup]="locationForm">
+        <div class="locationFilter">
+            <mat-form-field>
+                <input matInput formControlName="location" placeholder="Startpunkt">
+            </mat-form-field>
+        </div>
+        <div class="slider">
+            <mat-slider min="0" max="20000" step="100" value="1000" formControlName="distance"></mat-slider>
+            <span class="distance">
+                {{(filter.value.atLocation ? filter.value.atLocation.distance : 0) | distanceKm }}
+            </span>
+        </div>
+    </form>
+</div>
+
+<div class="buttons">
+    <button mat-button (click)="update()">Übernehmen</button>
+    <button mat-button (click)="cancel()">Abbrechen</button>
+    <button mat-button (click)="clear()">Filter zurücksetzen</button>
+</div>

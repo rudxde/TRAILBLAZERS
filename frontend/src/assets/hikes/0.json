@@ -1,0 +1,16 @@
+{
+    "id": "0",
+    "name": "Kneipen Tour München",
+    "length": 1000,
+    "duration": {
+        "hours": 1,
+        "minutes": 4
+    },
+    "startPoint": {
+        "latitude": 0,
+        "longitude": 0
+    },
+    "previewImages": [
+        "http://cdn2.spiegel.de/images/image-1149275-860_poster_16x9-ihmc-1149275.jpg"
+    ]
+}

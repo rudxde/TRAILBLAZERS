@@ -1,0 +1,9 @@
+FROM tb_service-utils
+
+WORKDIR /usr/src/app
+COPY ./auth/package.json ./
+RUN npm install
+COPY ./auth/ .
+RUN npm run build
+
+CMD [ "npm", "start" ]

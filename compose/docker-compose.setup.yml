@@ -1,0 +1,61 @@
+version: '3'
+services:
+  setup:
+    build:
+      context: .
+      dockerfile: ./setup/DOCKERFILE
+    command: npm start
+    volumes:
+      - vol-keys:/usr/src/app/keys
+      - db-map:/usr/src/app/db/map
+      - db-hikes:/hikes/src/app/db/hikes
+      - ./setup/template:/usr/src/app/template
+    depends_on:
+      - mongo-auth
+      - mongo-hikes
+      - mongo-user
+      - mongo-weather
+    networks:
+      - tb_net
+      - tb_auth_net
+      - tb_hikes_net
+      - tb_user_net
+      - tb_weather_net
+  export-hikes:
+    build:
+        context: .
+        dockerfile: ./setup/DOCKERFILE
+    command: npm start --importMapTemplate=false exportMapTemplate=false importHikesTemplate=false exportHikesTemplate=true keys=false auth=false hikes=false user=false weather=false
+    volumes:
+        - db-hikes:/hikes/src/app/db/hikes
+        - ./setup/template:/usr/src/app/template
+  import-hikes:
+    build:
+        context: .
+        dockerfile: ./setup/DOCKERFILE
+    command: npm start --importMapTemplate=false exportMapTemplate=false importHikesTemplate=true exportHikesTemplate=false keys=false auth=false hikes=false user=false weather=false
+    volumes:
+        - db-hikes:/hikes/src/app/db/hikes
+        - ./setup/template:/usr/src/app/template
+    networks:
+      - tb_net
+  export-map:
+    build:
+      context: .
+      dockerfile: ./setup/DOCKERFILE
+    command: npm start -- importMapTemplate=false exportMapTemplate=true importHikesTemplate=false exportHikesTemplate=false keys=false auth=false hikes=false user=false weather=false
+    volumes:
+      - db-map:/usr/src/app/db/map
+      - ./setup/template:/usr/src/app/template
+    networks:
+      - tb_net
+  import-map:
+    build:
+      context: .
+      dockerfile: ./setup/DOCKERFILE
+    command: npm start -- importMapTemplate=true exportMapTemplate=false importHikesTemplate=false exportHikesTemplate=false keys=false auth=false hikes=false user=false weather=false
+    volumes:
+      - db-map:/usr/src/app/db/map
+      - ./setup/template:/usr/src/app/template
+    networks:
+      - tb_net

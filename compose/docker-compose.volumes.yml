@@ -1,0 +1,9 @@
+version: '3'
+
+volumes:
+    db-auth:
+    db-hikes:
+    db-user:
+    db-weather:
+    db-map:
+    vol-keys:

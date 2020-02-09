@@ -1,0 +1,7 @@
+FROM node:12
+
+WORKDIR /usr/src/interfaces
+COPY ./interfaces/package.json ./
+RUN npm install
+COPY ./interfaces/ .
+RUN npm run build

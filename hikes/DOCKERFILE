@@ -1,0 +1,9 @@
+FROM tb_service-utils
+
+WORKDIR /usr/src/app
+COPY ./hikes/package.json ./
+RUN npm install
+COPY ./hikes/ .
+RUN npm run build
+
+CMD [ "npm", "start" ]

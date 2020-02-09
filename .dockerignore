@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+**/.tmp
+**/build/coverage
+docs
+osm-import
+.git
+setup/template

@@ -1,0 +1,9 @@
+FROM tb_service-utils
+
+WORKDIR /usr/src/app
+COPY ./map/package.json ./
+RUN npm install
+COPY ./map/ .
+RUN npm run build
+
+CMD [ "npm", "start" ]

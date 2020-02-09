@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [opened]="opened$ |async" (closedStart)="closeNavbar()" class="navbar">
+        <app-navbar></app-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <mat-toolbar class="head-toolbar">
+            <button mat-button (click)="openNavbar()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="title">
+                {{ title$ | async }}
+            </span>
+            <span *ngIf="specialAction$ | async" (click)="dispatchSpecialAction()">
+                <mat-icon>{{(specialAction$ | async).icon}}</mat-icon>
+            </span>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

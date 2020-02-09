@@ -1,0 +1,18 @@
+<mat-progress-bar *ngIf="(loading$ | async) !== 'loaded'" mode="indeterminate"></mat-progress-bar>
+
+<div *ngIf="(loading$ | async) === 'loaded'">
+    <div *ngIf="nextHikeRoute$|async as hike">
+        <mat-card class="nextRoute" (click)="openRoute(hike)">
+            <mat-card-title> Nächste Tour: </mat-card-title>
+            <mat-card-content>
+                <mat-icon>directions_walk</mat-icon>
+                <span class="nextRouteName">
+                    {{hike.title}}
+                </span>
+                <span class="nextRouteDuration">
+                    - {{hike.time | timespan}}
+                </span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

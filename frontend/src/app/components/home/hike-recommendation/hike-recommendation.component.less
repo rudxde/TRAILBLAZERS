@@ -1,0 +1,36 @@
+.snap-container {
+    overflow-x: scroll;
+    display: grid;
+    gap: 8px;
+    grid-auto-flow: column;
+    scroll-snap-type: x mandatory;
+}
+
+.hike-card {
+    scroll-snap-align: center;
+    background-size: cover;
+    background-position: center;
+    height: 56vw;
+    width: 100vw;
+    position: relative;
+}
+
+.hike-name {
+    color: #fff;
+    position: absolute;
+    bottom: 32px;
+    left: 16px;
+    right: 16px;
+    font-size: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hike-metha {
+    color: #fff;
+    position: absolute;
+    bottom: 16px;
+    right: 8px;
+    font-size: 16px;
+}

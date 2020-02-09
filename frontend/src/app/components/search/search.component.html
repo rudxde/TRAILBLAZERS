@@ -1,0 +1,12 @@
+<div *ngFor="let filter of (filters$ | async)" class="filter" (click)="edit(filter)">
+    <span class="filter-name">
+        {{filter.name}}
+    </span>
+    <span class="filter-value">
+        {{filterValueToString(filter.value)}}
+    </span>
+</div>
+
+
+
+<button mat-button color="primary" class="search centeredSubmitButton" (click)="search()">Search</button>

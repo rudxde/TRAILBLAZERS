@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: ubuntu:latest
+    entrypoint: 'echo started'
+    depends_on:
+      - proxy
+  app-debug:
+    image: ubuntu:latest
+    entrypoint: 'echo started'
+    depends_on:
+      - proxy-debug

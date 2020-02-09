@@ -1,0 +1,17 @@
+<button mat-fab color="primary" class="start-track-button" (click)="track()" (contextmenu)="trackDetailed($event)" *ngIf="!(isTracking$ | async)">
+    <mat-icon>play_arrow</mat-icon>
+</button>
+
+<div class="map">
+    <canvas #canvas1 class="layer1" width="800" height="1200">
+
+    </canvas>
+    <canvas #canvas2 class="layer2" width="400" height="800">
+
+    </canvas>
+    <div class="debugData" *ngIf="showDebugData">
+        <div *ngFor="let line of (debugData$ | async).split('\n')">
+            {{line}}
+        </div>
+    </div>
+</div>

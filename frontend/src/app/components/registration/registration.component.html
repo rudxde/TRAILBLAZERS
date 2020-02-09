@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput formControlName="nickName" placeholder="Benutzername">
+        <mat-error *ngIf="control('nickName').invalid">
+            Bitte geben Sie einen Benutzernamen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="firstName" placeholder="Vorname">
+        <mat-error *ngIf="control('firstName').invalid">
+            Bitte geben Sie ihren Vornamen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="lastName" placeholder="Nachname">
+        <mat-error *ngIf="control('lastName').invalid">
+            Bitte geben Sie einen Nachnamen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="control('email').invalid">
+            Bitte geben Sie ihre Email ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder="Passwort">
+        <mat-error *ngIf="control('password').invalid">
+            Das Passwort muss mindestens 8 Zeichen lang sein, einen 1 Klein-Buchstaben, einen 1 Großbuchstaben eine Zahl und ein sonderzeichen enthalten.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" formControlName="passwordRetry" placeholder="Passwort wiederholen">
+        <mat-error *ngIf="control('passwordRetry').invalid">
+            Die eingegebenen Passwörter stimmen nicht überein!
+        </mat-error>
+    </mat-form-field>
+    <mat-checkbox formControlName="acceptAgbs">Ich stimme den AGB's zu</mat-checkbox>
+    <mat-error *ngIf="control('acceptAgbs').invalid && form.touched">
+        Bitte akzeptieren sie die AGB's!
+    </mat-error>
+    <div class="buttons">
+        <button mat-raised-button color="primary" (click)="register()" type="submit">Registrieren</button>
+        <button mat-button (click)="abbort()" type="reset">Abbrechen</button>
+    </div>
+</form>
+
+

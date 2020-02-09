@@ -1,0 +1,15 @@
+{
+    "name": "My Library",
+    "mode": "modules",
+    "out": "docs",
+    "theme": "default",
+    "target": "es6",
+    "ignoreCompilerErrors": "true",
+    "preserveConstEnums": "true",
+    "exclude": "**/node_modules/**",
+    "external-modulemap": ".*\/TRAILBLAZERS\/([\\w\\-_]+)\/",
+    "stripInternal": "false",
+    "excludeNotExported": "true",
+    "excludePrivate": "true",
+    "externalPattern": "true"
+}

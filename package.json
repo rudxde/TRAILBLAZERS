@@ -1,0 +1,45 @@
+{
+  "name": "trailblazers",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "help": "ts-node ./scripts/help.ts",
+    "start": "npm run compose -- up app",
+    "stop": "npm run compose -- stop",
+    "compose": "docker-compose --project-directory . -f ./compose/docker-compose.app.yml -f ./compose/docker-compose.networks.yml -f ./compose/docker-compose.auth.yml -f ./compose/docker-compose.frontend.yml -f ./compose/docker-compose.hikes.yml -f ./compose/docker-compose.libs.yml -f ./compose/docker-compose.map.yml -f ./compose/docker-compose.proxy.yml -f ./compose/docker-compose.setup.yml -f ./compose/docker-compose.user.yml -f ./compose/docker-compose.volumes.yml -f ./compose/docker-compose.weather.yml",
+    "start:debug": "npm run compose -- up app-debug",
+    "setup": "npm run compose -- up setup",
+    "setup:all": "ts-node ./scripts/setup-all.ts",
+    "typedoc": "node node_modules/typedoc/bin/typedoc --options ./typedoc.json ./",
+    "install-apps": "ts-node ./scripts/install.ts",
+    "update-apps": "ts-node ./scripts/update.ts",
+    "build": "ts-node ./scripts/build.ts",
+    "build-lib-images": "npm run compose -- build interfaces environment utils service-utils",
+    "build:prod": "ts-node ./scripts/build.ts --prod",
+    "lint": "ts-node ./scripts/lint.ts",
+    "lint:fix": "ts-node ./scripts/lint.ts --fix",
+    "download-map-template": "ts-node ./scripts/download-map-template.ts",
+    "download-tour-template": "ts-node ./scripts/download-tour-template.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudxde/TRAILBLAZERS.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/rudxde/TRAILBLAZERS/issues"
+  },
+  "homepage": "https://github.com/rudxde/TRAILBLAZERS#readme",
+  "dependencies": {
+    "@types/node": "^12.12.16",
+    "typedoc": "^0.15.4",
+    "typedoc-plugin-external-module-map": "^1.0.0",
+    "tslint": "~5.9.1",
+    "ts-node": "8.6.2",
+    "@types/npm": "^2.0.31",
+    "fs": "0.0.1-security"
+  }
+}

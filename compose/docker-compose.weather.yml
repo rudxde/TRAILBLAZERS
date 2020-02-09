@@ -1,0 +1,24 @@
+version: '3'
+services:
+  weather:
+    build:
+      context: .
+      dockerfile: ./weather/DOCKERFILE
+    depends_on:
+      - mongo-weather
+    volumes:
+      - vol-keys:/usr/src/app/keys
+    networks:
+      - tb_net
+      - tb_weather_net
+  mongo-weather:
+    image: mongo:4.0
+    volumes:
+      - db-weather:/data/db
+    ports:
+      - 127.0.0.1:27004:27017
+    networks:
+      - tb_weather_net
+
+networks:
+  tb_weather_net:

@@ -1,0 +1,23 @@
+<mat-progress-bar *ngIf="(loading$ | async) === 'loading'" mode="indeterminate"></mat-progress-bar>
+
+<div *ngIf="hikingRoute$|async as hike">
+    <div class="img-container">
+        <mat-card *ngFor="let img of hike.images.image"
+            [style.backgroundImage]="'url(' + 'http://img.oastatic.com/img/' + img.id + '/.jpg' + ')'" class="img-card">
+        </mat-card>
+    </div>
+    <mat-card class="hike">
+        <mat-card-header>
+            <mat-icon mat-card-avatar>directions_walk</mat-icon>
+            <mat-card-title> {{hike.title}} </mat-card-title>
+            <mat-card-subtitle>{{hike.shortText | hmtlRm}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="textHike">
+            <mat-list>
+                <mat-list-item>- Schwierigkeit: {{(hikeDifficulty$ | async)}}</mat-list-item>
+                <mat-list-item>-  Dauer: {{hike.time | timespan }} </mat-list-item>
+                <mat-list-item>-  Länge: {{hike.length | distanceKm: 'km'}} </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>

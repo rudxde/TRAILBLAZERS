@@ -1,0 +1,14 @@
+<div class="container">
+    <ul>
+        <li *ngFor="let entry of entrys">
+            <button mat-button class="navigation-button" (click)="navigate(entry.route)">
+                {{entry.title}}
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+        </li>
+    </ul>
+    <div class="footer">
+        <button mat-button color="link" class="settings" (click)="settings()">Einstellungen</button>
+        <button mat-button color="link" class="logout" (click)="logout()">Logout</button>
+    </div>
+</div>

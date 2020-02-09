@@ -1,0 +1,11 @@
+{
+    "id": "0",
+    "isMe": true,
+    "isMyFriend": false,
+    "firstName": "Peter",
+    "lastName": "Griffin",
+    "nickName": "Peter",
+    "personalScores": {},
+    "picturePath": "/assets/profile_pic.png",
+    "rank": 5
+}

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  user:
+    build:
+      context: .
+      dockerfile: ./user/DOCKERFILE
+    depends_on:
+      - mongo-user
+    volumes:
+      - vol-keys:/usr/src/app/keys
+    networks:
+      - tb_net
+      - tb_user_net
+  mongo-user:
+    image: mongo:4.0
+    volumes:
+      - db-user:/data/db
+    ports:
+      - 127.0.0.1:27003:27017
+    networks:
+      - tb_user_net
+
+networks:
+  tb_user_net:

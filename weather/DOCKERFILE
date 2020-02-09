@@ -1,0 +1,9 @@
+FROM tb_service-utils
+
+WORKDIR /usr/src/app
+COPY ./weather/package.json ./
+RUN npm install
+COPY ./weather/ .
+RUN npm run build
+
+CMD [ "npm", "start" ]

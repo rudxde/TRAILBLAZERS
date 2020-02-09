@@ -1,0 +1,7 @@
+FROM tb_environment
+
+WORKDIR /usr/src/utils
+COPY ./utils/package.json ./
+RUN npm install
+COPY ./utils/ .
+RUN npm run build

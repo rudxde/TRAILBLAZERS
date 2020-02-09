@@ -1,0 +1,14 @@
+<mat-progress-bar *ngIf="loading$ | async" mode="indeterminate"></mat-progress-bar>
+
+<div *ngIf="!(loading$ | async)" class="snap-container">
+    <mat-card *ngFor="let hike of (recommendetHikes$ | async)"
+     (click)="openRoute(hike)"
+        [style.backgroundImage]="'url(' + hike.constructedImgUrl + ')'" class="hike-card">
+        <span class="hike-name">
+            {{hike.title}}
+        </span>
+        <span class="hike-metha">
+            {{hike.time | timespan }} - {{hike.length | distanceKm: 'km' }}
+        </span>
+    </mat-card>
+</div>

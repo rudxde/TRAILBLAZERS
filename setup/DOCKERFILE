@@ -1,0 +1,9 @@
+FROM tb_service-utils
+
+WORKDIR /usr/src/app
+COPY ./setup/package.json ./
+RUN npm install
+COPY ./setup/ .
+RUN npm run build
+
+CMD [ "npm", "start" ]

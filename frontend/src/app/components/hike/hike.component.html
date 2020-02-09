@@ -1,0 +1,9 @@
+<app-hiking-route></app-hiking-route>
+<div *ngIf="(loading$ | async) === 'loaded'">
+    <div *ngIf="hikingRoute$|async as hike">
+        <app-weather-forecast
+            [city]="'{&quot;lon&quot;:&quot;' + hike.startingPoint.lon + '&quot;,&quot;lat&quot;:&quot;' + hike.startingPoint.lat + '&quot;}'">
+        </app-weather-forecast>
+        <button class="startButton centeredSubmitButton" mat-raised-button color="primary" (click)="openDetails(hike)">Start</button>
+    </div>
+</div>

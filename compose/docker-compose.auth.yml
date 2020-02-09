@@ -1,0 +1,29 @@
+version: '3'
+services:
+  auth:
+    build:
+      context: .
+      dockerfile: ./auth/DOCKERFILE
+    volumes:
+      - vol-keys:/usr/src/app/keys
+    depends_on:
+      - mongo-auth
+      - auth-redis
+    networks:
+      - tb_net
+      - tb_auth_net
+  auth-redis:
+    image: redis:latest
+    networks:
+      - tb_auth_net
+  mongo-auth:
+    image: mongo:4.0
+    volumes:
+      - db-auth:/data/db
+    ports:
+      - 127.0.0.1:27001:27017
+    networks:
+      - tb_auth_net
+
+networks:
+  tb_auth_net:

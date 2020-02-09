@@ -1,0 +1,11 @@
+<mat-progress-bar *ngIf="(loading$ | async) === 'loading'" mode="indeterminate"></mat-progress-bar>
+
+<span *ngIf="(loading$ | async) === 'loaded'">
+    <div class="friend" *ngFor="let friend of (friends$ | async)" (click)="navigateToProfile(friend.id)">
+        <span class="profile-pic" *ngIf="!!friend.picturePath" [style.backgroundImage]="'url(' + friend.picturePath + ')'"></span>
+        <mat-icon class="profile-pic" *ngIf="!friend.picturePath">perm_identity</mat-icon>
+        <span class="name">
+            {{friend.nickName}}
+        </span>
+    </div>
+</span>

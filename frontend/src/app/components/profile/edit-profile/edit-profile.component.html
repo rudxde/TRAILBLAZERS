@@ -1,0 +1,45 @@
+<div class="title">Profil bearbeiten</div>
+
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput formControlName="firstName" placeholder="Vorname">
+        <mat-error *ngIf="control('firstName').invalid">
+            Bitte geben Sie einen gültigen Namen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="lastName" placeholder="Nachname">
+        <mat-error *ngIf="control('lastName').invalid">
+            Bitte geben Sie einen gültigen Namen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="nickName" placeholder="Pseudonym">
+        <mat-error *ngIf="control('nickName').invalid">
+            Bitte geben Sie ein gültiges Pseudonym ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-error *ngIf="control('email').invalid">
+            Bitte geben Sie eine gültige Email-Adresse ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="picturePath" placeholder="Profil Bild">
+    </mat-form-field>
+    <button mat-stroked-button color="accent" (click)="changePassword()">
+        Passwort ändern
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <div class="buttons">
+        <button mat-raised-button color="primary" [attr.disabled]="(pending$ | async)" (click)="update()" type="submit">
+            <span *ngIf="!(pending$ | async)">
+                Übernehmen
+            </span>
+            <mat-progress-spinner class="spinner" diameter="14" *ngIf="(pending$ | async)" mode="indeterminate">
+            </mat-progress-spinner>
+        </button>
+        <button mat-button (click)="cancel()">Abbrechen</button>
+    </div>
+</form>

@@ -1,0 +1,16 @@
+{
+    "id": "1",
+    "name": "Lustige Wanderung um den Garchinger See",
+    "length": 10000,
+    "duration": {
+        "hours": 3,
+        "minutes": 0
+    },
+    "startPoint": {
+        "latitude": 0,
+        "longitude": 0
+    },
+    "previewImages": [
+        "https://i.ytimg.com/vi/NO6DTg2QrMQ/maxresdefault.jpg"
+    ]
+}

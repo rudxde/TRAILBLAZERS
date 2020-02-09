@@ -1,0 +1,21 @@
+<form [formGroup]="form" class="container">
+    <mat-label *ngIf="label">
+        {{label}}
+    </mat-label>
+    <mat-form-field>
+        <mat-label>Stunden</mat-label>
+        <mat-select formControlName="hour">
+            <mat-option *ngFor="let hour of hours" [value]="hour">
+                {{hour}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Minuten</mat-label>
+        <mat-select formControlName="minute">
+            <mat-option *ngFor="let minute of minutes" [value]="minute">
+                {{minute}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

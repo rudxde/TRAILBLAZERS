@@ -1,0 +1,28 @@
+version: '3'
+services:
+  interfaces:
+    build:
+      context: .
+      dockerfile: ./interfaces/DOCKERFILE
+    image: tb_interfaces
+  environment:
+    build:
+      context: .
+      dockerfile: ./environment/DOCKERFILE
+    image: tb_environment
+    depends_on:
+      - interfaces
+  utils:
+    build:
+      context: .
+      dockerfile: ./utils/DOCKERFILE
+    image: tb_utils
+    depends_on:
+      - environment
+  service-utils:
+    build:
+      context: .
+      dockerfile: ./service-utils/DOCKERFILE
+    image: tb_service-utils
+    depends_on:
+      - utils

@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput formControlName="login" placeholder="Benutzername">
+        <mat-error *ngIf="control('login').invalid">
+            Bitte geben Sie einen Benutzernamen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder="Passwort">
+        <mat-error *ngIf="control('password').invalid">
+            Bitte geben Sie ein Passwort ein!
+        </mat-error>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button mat-raised-button class="login" (click)="login()" color="primary" type="submit">Login</button>
+        <button mat-button class="register" (click)="register()">Registrieren</button>
+    </div>
+</form>
